@@ -80,9 +80,87 @@ function findTwoNumbersWithSum(sortedArr, target) {
 
 
 
+  // Question-5: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
+
+  function generatePassword(length) {
+    const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    const specialCharacters = '!@#$%^&*()-=_+[]{}|;:,.<>?';
+  
+    const allCharacters = uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
+  
+    length = Math.max(length, 8);
+  
+    let password = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * allCharacters.length);
+      password += allCharacters[randomIndex];
+    }
+  
+    return password;
+  }
+  const passwordLength = 8;
+  const generatedPassword = generatePassword(passwordLength);
+  console.log('Generated password:', generatedPassword);
+  
+
+
+
+// Question-6: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
+
+function calculator(num1, num2, operator) {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      if (num2 === 0) {
+        return "Error: Cannot divide by zero.";
+      }
+      return num1 / num2;
+    default:
+      return "Error: Invalid operator.";
+  }
+}
+const number1 = 10;
+const number2 = 5;
+const operation = '-';
+const result = calculator(number1, number2, operation);
+console.log(`Result: ${result}`);
 
 
 
 
+
+// QUestion-7: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
+
+function findSecondSmallest(arr) {
+  if (arr.length < 2) {
+    return "Error: The array must have at least two elements.";
+  }
+  let smallest = Infinity;
+  let secondSmallest = Infinity;
+
+  for (let num of arr) {
+    if (num < smallest) {
+      secondSmallest = smallest;
+      smallest = num;
+    } else if (num < secondSmallest && num !== smallest) {
+      secondSmallest = num;
+    }
+  }
+  if (secondSmallest === Infinity) {
+    return "Error: There is no second smallest element in the array.";
+  }
+
+  return secondSmallest;
+}
+const number = [12, 8, 15, 4, 10, 6];
+const secondSmallestNumber = findSecondSmallest(number);
+console.log("Second Smallest Number:", secondSmallestNumber);
 
   
